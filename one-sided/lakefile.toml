@@ -1,0 +1,28 @@
+name = "rh_signed_filter"
+version = "0.1.0"
+defaultTargets = ["SignedClosure"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "0df444a360eaa60ab8c11dca51a86af692955474"
+
+[[lean_lib]]
+name = "Formalism"
+srcDir = ".lake/landau-src"
+globs = ["Formalism.+"]
+leanOptions = { autoImplicit = false, relaxedAutoImplicit = false, maxHeartbeats = 4000000, maxSynthPendingDepth = 3 }
+
+[[lean_lib]]
+name = "RHReduction"
+srcDir = ".."
+
+[[lean_lib]]
+name = "FilterInputs"
+srcDir = "../filter"
+roots = ["Parity", "Grid", "Intervals", "Filter", "Linear", "Contour", "Scale",
+         "JumpSeries", "Abel", "AbelEuler", "FilterConverse", "LandauSource",
+         "LandauAxis", "OneSidedConverse"]
+
+[[lean_lib]]
+name = "SignedClosure"

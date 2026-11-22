@@ -1,12 +1,12 @@
 {
   "lean": "Lean (version 4.34.1, x86_64-w64-windows-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
   "mathlib_git": "d13f23b723b8a846827a245b89c10fc7d3f11612",
-  "scope": "The analytic converse uses a holomorphic extension and its Euler-side identity. The forward bilateral estimate uses RH, the indicated truncation, and reciprocal growth. Each hypothesis is explicit in the type.",
+  "scope": "The analytic converse uses a holomorphic extension and its Euler-side identity. The forward bilateral estimate uses RH, the indicated truncation, and reciprocal growth. Each hypothesis is explicit in the type. FilterConverse has been recompiled with the identity theorem generalized to Re > a. Its combined axiom audit will be included with the signed one-sided converse.",
   "modules": [
     {
       "module": "FilterConverse",
-      "source_sha256": "6c7e2feafc17e11054130a7a7dfdbc51be3dff644a13225ef4cf3c15a9105acb",
-      "olean_sha256": "ed8b87d84d94d9d4e27daf7e1d5905e93db0577d669230c37ffa87a6f5cb1948",
+      "source_sha256": "7be7ae4e5f8bc1a5f1918be515de09d995f0339938fada7d1eabfd612fadc238",
+      "olean_sha256": "d82c71164aa61333117002d5a210d55b895eb6f52fc10a2ec7e6bf00d7f8e74b",
       "compiler_exit": 0
     },
     {

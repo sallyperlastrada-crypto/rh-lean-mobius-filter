@@ -1,0 +1,37 @@
+name: Verify the signed Mobius filter
+on: workflow_dispatch
+
+permissions:
+  contents: read
+
+jobs:
+  signed-filter:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      LEAN_NUM_THREADS: 2
+    defaults:
+      run:
+        working-directory: one-sided
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Install Elan
+        run: |
+          curl -fsSL --retry 3 https://github.com/leanprover/elan/releases/download/v4.1.2/elan-x86_64-unknown-linux-gnu.tar.gz -o "$RUNNER_TEMP/elan.tar.gz"
+          tar -xzf "$RUNNER_TEMP/elan.tar.gz" -C "$RUNNER_TEMP" elan-init
+          "$RUNNER_TEMP/elan-init" -y --no-modify-path --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch the pinned sources and Mathlib
+        run: |
+          python3 fetch_landau.py
+          lake exe cache get
+      - name: Compile the filter and check both theorem signatures
+        run: |
+          set -o pipefail
+          lake build SignedClosure
+          lake env lean SignedClosure.lean | tee "$RUNNER_TEMP/signed-closure.log"
+          for name in rh_of_signed_filter_minorant rh_of_signed_grid_minorant; do
+            grep -Fx "'RHFilter.$name' depends on axioms: [propext, Classical.choice, Quot.sound]" "$RUNNER_TEMP/signed-closure.log"
+          done

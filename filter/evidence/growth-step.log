@@ -1,0 +1,1 @@
+'RHFilter.Growth.exp_log_power_subpower' depends on axioms: [propext, Classical.choice, Quot.sound]

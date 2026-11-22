@@ -1,0 +1,65 @@
+{
+  "commit": "40e56bab026552e089d7afcfeff08d2defb9c005",
+  "root": "Formalism.ZetaNonvanishing.LandauEq",
+  "modules": [
+    {
+      "module": "Formalism.Statement",
+      "sha256": "ae9733a3faa3c29aaff14c34b886081a05ca9849a50ebabcbd3a2c9df5101482",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    {
+      "module": "Formalism.StatementOC",
+      "sha256": "0249562a8b70df61856f6fdce16afdf17fbe88c9945af4231700503d11027f8a",
+      "imports": [
+        "Formalism.Statement"
+      ]
+    },
+    {
+      "module": "Formalism.ZetaRealNonvanish",
+      "sha256": "f4290566b947c7aa455387840922ede116ab0a85d6882e96796f494c4037c515",
+      "imports": [
+        "Formalism.Statement"
+      ]
+    },
+    {
+      "module": "Formalism.DefsOC",
+      "sha256": "3bbd95f2af8579c0e341eb2980ec0dd5bf68584f0adf7a1ab4065b655cba7d5d",
+      "imports": [
+        "Formalism.StatementOC",
+        "Formalism.ZetaRealNonvanish"
+      ]
+    },
+    {
+      "module": "Formalism.ZetaNonvanishing.LandauLemma",
+      "sha256": "8a61c3a20982d2b26a65bed5d18f719d5b609ea31851aa28178de181131854d4",
+      "imports": [
+        "Formalism.ZetaRealNonvanish"
+      ]
+    },
+    {
+      "module": "Formalism.ZetaNonvanishing.MellinDeriv",
+      "sha256": "8f444d1c21885ff82600baacb7735ddad5fbb530f5617d5b40ce626cccff7860",
+      "imports": [
+        "Formalism.ZetaRealNonvanish"
+      ]
+    },
+    {
+      "module": "Formalism.ZetaNonvanishing.LandauEq",
+      "sha256": "3fd290e5baf398b7abc1d481ebee50f1b3364c553b944b2bd9dabddfd59b5609",
+      "imports": [
+        "Formalism.DefsOC",
+        "Formalism.ZetaNonvanishing.LandauLemma",
+        "Formalism.ZetaNonvanishing.MellinDeriv"
+      ]
+    },
+    {
+      "module": "Formalism.ZetaNonvanishing.ZetaRealNonvanish",
+      "sha256": "9c504135eafdc629c2fd1887002bdf7773958f38c972968b80be894e710f88dc",
+      "imports": [
+        "Formalism.ZetaRealNonvanish"
+      ]
+    }
+  ]
+}

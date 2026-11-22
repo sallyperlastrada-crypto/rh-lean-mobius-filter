@@ -12,6 +12,8 @@ lake env lean filter/OwnPath.lean
 
 ## Riscontro con la prova esterna
 
+Il [raccordo monolaterale](one-sided/README.md) impiega otto moduli esterni per il passaggio dal minorante di F all'olomorfia della trasformata positiva. La sua compilazione integrata è in verifica.
+
 [`ClosedRH.lean`](ClosedRH.lean) dichiara `RHDeposit.riemannHypothesis : RiemannHypothesis`. L'apporto aritmetico di questo riscontro è di **Levent Alpöge con Claude**. Il termine di prova applica la riduzione per riflessione al loro teorema di non annullamento delle funzioni L di Dirichlet. Il filtro F non compare nella sua dimostrazione. La dipendenza è fissata al [commit `40e56bab`](https://github.com/leanprover-community/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Main.lean).
 
 1. `RHReduction.of_every_character` specializza il teorema esterno al carattere modulo uno. La sua funzione L coincide con ζ. Ne segue il non annullamento di ζ per `Re s > 1/2`, escluso il polo.
