@@ -1,6 +1,6 @@
 {
   "workflow": "Verify the signed Mobius filter",
-  "run": "https://github.com/sallyperlastrada-crypto/rh-lean-filtro-mobius/actions/runs/45066521543",
+  "run": "https://github.com/sallyperlastrada-crypto/rh-lean-mobius-filter/actions/runs/45066521543",
   "commit": "19d93910ef3446fd88e668323a7cd2b266f1e7ea",
   "lean": "4.33.1",
   "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",

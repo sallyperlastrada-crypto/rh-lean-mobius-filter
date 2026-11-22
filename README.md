@@ -1,14 +1,16 @@
-# Percorso verso RH con il filtro di Möbius F
+# The Riemann hypothesis from a lower bound for the Möbius filter F
 
-Il teorema `RHFilter.rh_of_signed_grid_minorant` deduce l'ipotesi di Riemann da un minorante uniforme della griglia di Möbius. Per ogni ε > 0 si richiede una costante C ≥ 0 tale che, per ogni intero N ≥ 1,
+The Lean theorem `RHFilter.rh_of_signed_grid_minorant` proves that a uniform lower bound on a signed sum of four Mertens function values implies the Riemann hypothesis (RH). **Proving the lower bound for every 0 < ε < 1/2 remains open in this approach.**
+
+Let M(N) be the sum of the Möbius function μ(n) over 1 ≤ n ≤ N, with M(0) = 0. The hypothesis is that for every ε > 0 there exists C ≥ 0 such that, for every integer N ≥ 1,
 
 ```text
 −C N^(1/2+ε) ≤ −M(N) + 5 M(⌊N/2⌋) − 8 M(⌊N/4⌋) + 4 M(⌊N/8⌋).
 ```
 
-Qui M(N) include il termine di indice N. Il membro destro è esattamente F(N/4). Lean 4.33.1 ha compilato sia il teorema sulla griglia sia quello sul filtro reale. L'audit di entrambi riporta `propext`, `Classical.choice` e `Quot.sound`. La dimostrazione aritmetica del minorante per 0 < ε < 1/2 resta aperta. [Enunciati Lean](one-sided/SignedClosure.lean) · [Build verificata su GitHub](https://github.com/sallyperlastrada-crypto/rh-lean-filtro-mobius/actions/runs/45066521543) · [Istruzioni per riprodurla](one-sided/README.md).
+The right-hand side is exactly F(N/4). Lean 4.33.1 verified the implication both for this integer grid and for F on the positive real axis. The axiom audit for each theorem lists `propext`, `Classical.choice`, and `Quot.sound`. [Lean statements](one-sided/SignedClosure.lean) · [Verified GitHub build](https://github.com/sallyperlastrada-crypto/rh-lean-mobius-filter/actions/runs/45066521543) · [Instructions for reproducing the build](one-sided/README.md).
 
-La versione bilaterale `RHFilter.rh_of_bilateral_filter` usa una stima del valore assoluto. Per riprodurre questa compilazione dalla radice, eseguire
+The two-sided version, `RHFilter.rh_of_bilateral_filter`, assumes a bound on the absolute value of F. Run the following commands from the repository root to reproduce that build.
 
 ```sh
 lake exe cache get
@@ -16,26 +18,26 @@ lake build FilterResearch
 lake env lean filter/OwnPath.lean
 ```
 
-## Riscontro con la prova esterna
+## Relationship to the external proof
 
-Per il raccordo monolaterale si importano tre lemmi analitici dai sorgenti di Alpöge–Claude, con otto moduli di dipendenza. Il passo aritmetico assunto dal teorema è il minorante firmato riportato sopra. [Dipendenze e hash](one-sided/upstream.json) · [Verbale della compilazione](one-sided/evidence/github-build.json).
+The proof from the one-sided lower bound uses three analytic lemmas from the Alpöge–Claude sources. Their dependencies span eight modules. The signed lower bound above is the arithmetic hypothesis of the filter theorem. [Dependency revisions and hashes](one-sided/upstream.json) · [Build record](one-sided/evidence/github-build.json).
 
-[`ClosedRH.lean`](ClosedRH.lean) dichiara `RHDeposit.riemannHypothesis : RiemannHypothesis`. L'apporto aritmetico di questo riscontro è di **Levent Alpöge con Claude**. Il termine di prova applica la riduzione per riflessione al loro teorema di non annullamento delle funzioni L di Dirichlet. Il filtro F non compare nella sua dimostrazione. La dipendenza è fissata al [commit `40e56bab`](https://github.com/leanprover-community/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Main.lean).
+A separate file declares `RHDeposit.riemannHypothesis : RiemannHypothesis`. Its arithmetic input is the Dirichlet L-function nonvanishing theorem of **Levent Alpöge with Claude**. This proof uses that theorem and reflection alone, independently of F. [Declaration](ClosedRH.lean) · [Pinned upstream source at commit `40e56bab`](https://github.com/leanprover-community/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Main.lean).
 
-1. `RHReduction.of_every_character` specializza il teorema esterno al carattere modulo uno. La sua funzione L coincide con ζ. Ne segue il non annullamento di ζ per `Re s > 1/2`, escluso il polo.
-2. Per uno zero non banale a sinistra della linea, `RHReduction.completed_zero_of_nontrivial` passa alla funzione completata. La prova tratta `s = 0` e i punti `−2, −4, …` prima della divisione per il fattore Gamma.
-3. L'equazione funzionale dà uno zero riflesso in `1 − s`, nel semipiano già escluso. Resta `Re s = 1/2`. La [riduzione Lean](RHReduction.lean) usa le definizioni di Mathlib.
+1. `RHReduction.of_every_character` specializes the external theorem to the character modulo one. Its L-function equals ζ, so ζ is nonzero for `Re s > 1/2`, away from its pole.
+2. For a nontrivial zero to the left of the critical line, `RHReduction.completed_zero_of_nontrivial` passes to the completed zeta function. The proof treats `s = 0` and the points `−2, −4, …` before dividing by the gamma factor.
+3. The functional equation gives a reflected zero at `1 − s` in the half-plane already excluded. Every nontrivial zero therefore satisfies `Re s = 1/2`. The formalization uses Mathlib's definitions. [Lean reduction](RHReduction.lean).
 
-## Stato della verifica
+## Verification status of the external route
 
-| Componente | Evidenza |
+| Component | Evidence |
 | --- | --- |
-| Teorema aritmetico di Alpöge–Claude | Verificato esternamente contro la specifica di Mathlib. L'audit del singolo teorema riporta `propext`, `Classical.choice`, `Quot.sound`. [Verifiche MIT](https://math.mit.edu/~drew/grh/) |
-| Deduzione dal non annullamento modulo uno | Compilazione e audit dei quattro teoremi in [`RHReduction.lean`](RHReduction.lean). [Verifiche locali](evidence/) |
-| Firma della dipendenza | [`SignatureAudit.lean`](SignatureAudit.lean) enuncia il raccordo come implicazione. `python verify_upstream.py` confronta la firma con il sorgente al commit fissato e verifica lo SHA-256 del log MIT. |
-| Applicazione finale `RHDeposit.riemannHypothesis` | Sorgente senza ipotesi matematiche esplicite. La compilazione integrata del nuovo modulo con l'intero `Main` esterno resta da eseguire. |
+| Alpöge–Claude arithmetic theorem | External verification checked the theorem against Mathlib's specification. The theorem's axiom audit lists `propext`, `Classical.choice`, and `Quot.sound`. [MIT verification](https://math.mit.edu/~drew/grh/) |
+| Deduction from nonvanishing modulo one | The four theorems in the reduction compiled and their axioms were audited. [Lean source](RHReduction.lean) · [Local verification records](evidence/) |
+| Upstream theorem signature | `SignatureAudit.lean` states the reduction as an implication. Running `python verify_upstream.py` compares the signature with the pinned source and verifies the SHA-256 hash of the MIT log. [Signature audit](SignatureAudit.lean) |
+| Final application `RHDeposit.riemannHypothesis` | The declaration has no explicit mathematical hypotheses. An integrated build of this module with the full upstream `Main` remains outstanding. |
 
-Per ripetere la build facoltativa che importa l'intera prova esterna, eseguire dalla radice
+To run the optional build with the full external proof, start from the repository root.
 
 ```sh
 cd external
@@ -44,8 +46,8 @@ lake build ClosedRH
 lake env lean ../ClosedRH.lean
 ```
 
-L'ultimo comando stampa gli assiomi della dichiarazione effettivamente importata. Il progetto fissa Lean `v4.33.1`. Le [dimensioni della distribuzione precompilata](https://proofsandreasons.io/rh-oleans.html) e le [istruzioni per ripetere il controllo dell'esportazione](https://math.mit.edu/~drew/grh/) descrivono i requisiti della verifica esterna.
+The final command prints the axioms of the imported declaration. This project pins Lean `v4.33.1`. The upstream documentation gives the storage requirements and the steps for checking the proof export. [Precompiled distribution](https://proofsandreasons.io/rh-oleans.html) · [Export verification instructions](https://math.mit.edu/~drew/grh/).
 
-## Risultati sul filtro F
+## Results for the filter F
 
-Il [progetto `filter/`](filter/README.md) conserva la propria versione verificata di Lean, `v4.34.1`. Comprende griglia, bordi, salti, telescopia e raccordi al minorante. Nel regime `0 < ε < 1/2` la sua via di Perron richiede ancora la troncatura quantitativa e la crescita subpotenza di `1/ζ`. La deduzione di RH in `ClosedRH` usa il teorema esterno e procede indipendentemente dal minorante di F.
+The filter project uses Lean `v4.34.1` for its grid, endpoint, jump, and telescoping identities and for its deductions about the lower bound. For `0 < ε < 1/2`, its Perron argument still requires a quantitative truncation estimate and a subpower growth bound on `1/ζ`. [Filter project and verified results](filter/README.md).

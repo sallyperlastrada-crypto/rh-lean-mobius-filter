@@ -1,24 +1,24 @@
-# Filtro di Möbius su quattro scale
+# The four-scale Möbius filter
 
-Per `N = ⌊4x⌋` e `M(n) = ∑_{1 ≤ j ≤ n} μ(j)`, il valore di `F` sulla cella `[N/4,(N+1)/4)` è
+Let `M(n) = ∑_{1 ≤ j ≤ n} μ(j)` be the Mertens function. For `x ≥ 0` and `N = ⌊4x⌋`, the filter `F` takes the following value throughout the half-open interval `[N/4, (N+1)/4)`.
 
 ```text
 −M(N) + 5 M(⌊N/2⌋) − 8 M(⌊N/4⌋) + 4 M(⌊N/8⌋).
 ```
 
-`Filter.lean`, `Grid.lean`, `Jump.lean`, `Intervals.lean` e `Orbit.lean` verificano l'identità, i salti e i termini ai due estremi. `Linear.lean` dimostra in particolare `F(x) ≥ −10x` per `x > 0`.
+`Filter.lean`, `Grid.lean`, `Jump.lean`, `Intervals.lean`, and `Orbit.lean` establish the grid identity and account for the jumps and both endpoint terms. `Linear.lean` proves the unconditional bound `F(x) ≥ −10x` for every `x > 0`.
 
-`Conclusion.lean` deduce il minorante di ordine `x^(1/2+ε)` per ogni `ε > 0` da tre premesse esplicite. La prima è RH. Le altre due sono `Perron.Truncation`, per l'errore di troncamento dei quattro prefissi, e una stima `Perron.ReciprocalGrowth` su `1/ζ` per `0 < ε < 1/2`. Il tipo completo del teorema si legge nel [log del compilatore](evidence/filter-audit.log).
+`Conclusion.lean` derives a lower bound of order `x^(1/2+ε)` for every `ε > 0` from three explicit hypotheses. These are RH, the truncation error bound `Perron.Truncation` for the four partial sums, and the growth bound `Perron.ReciprocalGrowth` on `1/ζ` for `0 < ε < 1/2`. The compiler log records the theorem's full type. [Compiler log](evidence/filter-audit.log).
 
-`MertensTransfer.lean` dà una seconda deduzione. Per `a ≥ 0`, `A ≥ 0` e `|M(n)| ≤ A n^a` su tutti gli interi positivi, si ha `|F(x)| ≤ 18 A (4x)^a` su tutti i reali `x ≥ 0`. La stima di Mertens figura tra le premesse.
+`MertensTransfer.lean` gives a second implication. If `a ≥ 0`, `A ≥ 0`, and `|M(n)| ≤ A n^a` for every positive integer `n`, then `|F(x)| ≤ 18 A (4x)^a` for every real `x ≥ 0`. This theorem assumes the stated Mertens bound.
 
-## Dal filtro a RH
+## From the filter to the Riemann hypothesis
 
-`RHFilter.Source.jumps_hasSum` calcola la serie dei salti direttamente dai coefficienti di Möbius. `Abel.transform_eq_source` la identifica con la trasformata della funzione a gradini per `Re s > 1`. Il suo simbolo è `P(z) = −(1−z)(1−2z)²`, con `z = 2^(−s)`. Per `1/2 < Re s < 1` nessuno dei fattori si annulla. Se il limite bilaterale su F vale per ogni ε positivo, la trasformata si prolunga olomorficamente a destra di 1/2. L'identità `ζ(s)G(s) = P(2^(−s))` esclude allora uno zero in quella striscia. [Serie dei salti](JumpSeries.lean) · [Raccordo integrale](AbelEuler.lean) · [Deduzione](OwnPath.lean).
+`RHFilter.Source.jumps_hasSum` computes the Dirichlet series of the jumps directly from the Möbius coefficients. For `Re s > 1`, `Abel.transform_eq_source` identifies that series with the normalized Mellin transform of the step function. The symbol is `P(z) = −(1−z)(1−2z)²`, where `z = 2^(−s)`. Both factors are nonzero for `1/2 < Re s < 1`. A two-sided estimate `|F(x)| ≤ Cε x^(1/2+ε)` for each positive `ε` extends the transform holomorphically to `Re s > 1/2`. The identity `ζ(s)G(s) = P(2^(−s))` then rules out zeros of ζ in the open strip `1/2 < Re s < 1`. [Series of jumps](JumpSeries.lean) · [Abel summation](AbelEuler.lean) · [Deduction of RH](OwnPath.lean).
 
-## Verifica
+## Reproducing the build
 
-Dalla radice del repository, con Elan e Git installati, eseguire
+With Elan and Git installed, run these commands from the repository root.
 
 ```sh
 lake exe cache get
@@ -26,4 +26,4 @@ lake build FilterResearch
 lake env lean filter/OwnPath.lean
 ```
 
-La compilazione registrata ha usato Lean 4.34.1 con Mathlib al commit fissato in `lakefile.toml`. Il [rapporto dei 17 moduli](evidence/filter-build.json) contiene gli hash dei sorgenti e dei binari. Il [rapporto Mertens](evidence/mertens.json) contiene l'audit aggiuntivo dei due teoremi di trasferimento. I binari possono differire tra ambienti di compilazione.
+The recorded build used Lean 4.34.1 and the Mathlib revision pinned in `lakefile.toml`. The build report lists source and binary hashes for 17 modules. The Mertens report records the additional audit of the two transfer theorems. Binary hashes can vary across build environments. [Build report](evidence/filter-build.json) · [Mertens report](evidence/mertens.json).
