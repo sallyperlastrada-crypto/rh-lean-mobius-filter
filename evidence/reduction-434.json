@@ -1,0 +1,56 @@
+{
+  "lean": "Lean (version 4.34.1, x86_64-w64-windows-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "mathlib_git": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "scope": "Local Lean 4.34.1 check of the reduction and expanded upstream theorem signature. The full upstream proof is external to this check.",
+  "modules": [
+    {
+      "module": "RHReduction",
+      "source_sha256": "45d772afa8086114f9b531a54034f66bea106b9ed62b27a10dd87bd1da569df6",
+      "olean_sha256": "e26b8df15f7cde3b7c0c905c06a794f949a5ea8e626d1c61535a28a4344790f6",
+      "compiler_exit": 0
+    },
+    {
+      "module": "SignatureAudit",
+      "source_sha256": "4d8afdb0ea796434621f889ec6472b2cdd9fb7da9f9db3fc51df4a7f06cf760a",
+      "olean_sha256": "ebcc81d1cca5a718849e76e026592364c7f25bc0f4cf0f6beb2cc98cb7104e8b",
+      "compiler_exit": 0
+    }
+  ],
+  "flags": [
+    "-j",
+    "1",
+    "-DwarningAsError=true"
+  ],
+  "axioms": {
+    "RHReduction.completed_zero_of_nontrivial": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RHReduction.of_zeta_right_nonvanishing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RHReduction.of_conductor_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RHReduction.of_every_character": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RHDeposit.Interface.apply_verified_signature": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "exits": {
+    "reduction_compile": 0,
+    "reduction_axiom_audit": 0,
+    "signature_compile_and_axiom_audit": 0
+  }
+}

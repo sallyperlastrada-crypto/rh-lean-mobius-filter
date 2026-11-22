@@ -1,0 +1,12 @@
+name = "rh_deposit"
+version = "0.1.0"
+defaultTargets = ["ClosedRH"]
+
+[[require]]
+name = "tree"
+git = "https://github.com/leanprover-community/riemann-hypothesis.git"
+rev = "40e56bab026552e089d7afcfeff08d2defb9c005"
+
+[[lean_lib]]
+name = "ClosedRH"
+roots = ["RHReduction", "SignatureAudit", "ClosedRH"]
