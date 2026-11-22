@@ -1,0 +1,33 @@
+{
+  "lean": "Lean (version 4.33.1, x86_64-w64-windows-gnu, commit 819816b2e0a3bf405af45ae5c7af2491d8f5bee6, Release)",
+  "mathlib_git": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "flags": [
+    "-j",
+    "1",
+    "-DwarningAsError=true"
+  ],
+  "checks": [
+    {
+      "module": "RHReduction",
+      "source_sha256": "45d772afa8086114f9b531a54034f66bea106b9ed62b27a10dd87bd1da569df6",
+      "olean_sha256": "5e2c8d16faaa481c0b275ce05c151c6e58921a08dd54ae5e22e6ba99d738c7b4",
+      "exit": 0,
+      "output": ""
+    },
+    {
+      "module": "SignatureAudit",
+      "source_sha256": "4d8afdb0ea796434621f889ec6472b2cdd9fb7da9f9db3fc51df4a7f06cf760a",
+      "olean_sha256": "46ea688394a1ed8110df749954f55b004e048f88063a5421d79182940c369ac3",
+      "exit": 0,
+      "output": "'RHDeposit.Interface.apply_verified_signature' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    },
+    {
+      "module": "ReductionAxiomAudit",
+      "source_sha256": "d61e42a2eb156cf6fe8cc7a8055fe7d06f7ec3441c762ab3e883affe87271b83",
+      "olean_sha256": "a6dd0782dc4520aa201610b8706a30814ea45a047c00393bd4f932c54f3fb3cb",
+      "exit": 0,
+      "output": "@RHReduction.completed_zero_of_nontrivial : ∀ {s : ℂ},\n  riemannZeta s = 0 → (¬∃ n, s = -2 * (↑n + 1)) → completedRiemannZeta s = 0\n'RHReduction.completed_zero_of_nontrivial' depends on axioms: [propext, Classical.choice, Quot.sound]\nRHReduction.of_zeta_right_nonvanishing : (∀ (s : ℂ), 1 / 2 < s.re → s ≠ 1 → riemannZeta s ≠ 0) → RiemannHypothesis\n'RHReduction.of_zeta_right_nonvanishing' depends on axioms: [propext, Classical.choice, Quot.sound]\nRHReduction.of_conductor_one : (∀ (s : ℂ), 1 / 2 < s.re → s ≠ 1 → DirichletCharacter.LFunction 1 s ≠ 0) →\n  RiemannHypothesis\n'RHReduction.of_conductor_one' depends on axioms: [propext, Classical.choice, Quot.sound]\nRHReduction.of_every_character : (∀ (N : ℕ) [inst : NeZero N] (χ : DirichletCharacter ℂ N) (s : ℂ),\n    1 / 2 < s.re → χ ≠ 1 ∨ s ≠ 1 → DirichletCharacter.LFunction χ s ≠ 0) →\n  RiemannHypothesis\n'RHReduction.of_every_character' depends on axioms: [propext, Classical.choice, Quot.sound]\nRHDeposit.Interface.apply_verified_signature : RHDeposit.Interface.DirichletLNonvanishingRightOfHalf → RiemannHypothesis\n'RHDeposit.Interface.apply_verified_signature' depends on axioms: [propext, Classical.choice, Quot.sound]\n"
+    }
+  ],
+  "scope": "reduction and arithmetic interface only; external proof is separately imported by ClosedRH"
+}

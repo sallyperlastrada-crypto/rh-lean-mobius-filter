@@ -12,14 +12,18 @@ Per `N = ⌊4x⌋` e `M(n) = ∑_{1 ≤ j ≤ n} μ(j)`, il valore di `F` sulla 
 
 `MertensTransfer.lean` dà una seconda deduzione. Per `a ≥ 0`, `A ≥ 0` e `|M(n)| ≤ A n^a` su tutti gli interi positivi, si ha `|F(x)| ≤ 18 A (4x)^a` su tutti i reali `x ≥ 0`. La stima di Mertens figura tra le premesse.
 
+## Dal filtro a RH
+
+`JumpSeries.jumps_hasSum` calcola la serie dei salti direttamente dai coefficienti di Möbius. `Abel.transform_eq_source` la identifica con la trasformata della funzione a gradini per `Re s > 1`. Il suo simbolo è `P(z) = −(1−z)(1−2z)²`, con `z = 2^(−s)`. Per `1/2 < Re s < 1` nessuno dei fattori si annulla. Se il limite bilaterale su F vale per ogni ε positivo, la trasformata si prolunga olomorficamente a destra di 1/2. L'identità `ζ(s)G(s) = P(2^(−s))` esclude allora uno zero in quella striscia. [Serie dei salti](JumpSeries.lean) · [Raccordo integrale](AbelEuler.lean) · [Deduzione](OwnPath.lean).
+
 ## Verifica
 
-Da questa directory, con Elan e Git installati, eseguire
+Dalla radice del repository, con Elan e Git installati, eseguire
 
 ```sh
-lake update
 lake exe cache get
-lake build SourceFilter
+lake build FilterResearch
+lake env lean filter/OwnPath.lean
 ```
 
 La compilazione registrata ha usato Lean 4.34.1 con Mathlib al commit fissato in `lakefile.toml`. Il [rapporto dei 17 moduli](evidence/filter-build.json) contiene gli hash dei sorgenti e dei binari. Il [rapporto Mertens](evidence/mertens.json) contiene l'audit aggiuntivo dei due teoremi di trasferimento. I binari possono differire tra ambienti di compilazione.

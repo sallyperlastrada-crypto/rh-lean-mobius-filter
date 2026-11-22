@@ -1,0 +1,57 @@
+{
+  "lean": "Lean (version 4.34.1, x86_64-w64-windows-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "mathlib_git": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "scope": "The analytic converse uses a holomorphic extension and its Euler-side identity. The forward bilateral estimate uses RH, the indicated truncation, and reciprocal growth. Each hypothesis is explicit in the type.",
+  "modules": [
+    {
+      "module": "FilterConverse",
+      "source_sha256": "6c7e2feafc17e11054130a7a7dfdbc51be3dff644a13225ef4cf3c15a9105acb",
+      "olean_sha256": "ed8b87d84d94d9d4e27daf7e1d5905e93db0577d669230c37ffa87a6f5cb1948",
+      "compiler_exit": 0
+    },
+    {
+      "module": "BilateralPerron",
+      "source_sha256": "824953225b7b207cdfea78ed1883d001171ea915e00e35dbe90eefaa295a3191",
+      "olean_sha256": "9156834ad2814d72f8d0d9ab47895b174890958fca1ec967c8446cf2e5f49feb",
+      "compiler_exit": 0
+    }
+  ],
+  "flags": [
+    "-j",
+    "1",
+    "-DwarningAsError=true"
+  ],
+  "axioms": {
+    "RHFilter.Converse.symbol_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RHFilter.Converse.continued_product": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RHFilter.Converse.rh_of_filtered_extension": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RHFilter.transfer_abs_grid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RHFilter.abs_grid_of_analytic_steps": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "RHFilter.bilateral_from_truncation_and_growth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "combined_import_and_audit_exit": 0
+}

@@ -1,0 +1,4 @@
+'RHFilter.euler_product_of_signed_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.rh_of_bilateral_filter' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.rh_via_filter_of_prefix_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+RHFilter.rh_of_bilateral_filter (h : Abel.Bilateral) : RiemannHypothesis
