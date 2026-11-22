@@ -94,6 +94,7 @@ theorem transform_shifted {a : ℝ} (C : ℝ) (ha : a ≤ 1) {s : ℂ} (hs : 1 <
     intro t _
     exact mul_comm _ _
   · rw [Complex.ofReal_one, Complex.one_cpow, show (a : ℂ)-s-1+1 = -(s-a) by ring]
-    simp [div_eq_mul_inv]
+    simp only [div_eq_mul_inv]
+    rw [inv_neg, neg_mul_neg, one_mul]
 
 end RHFilter.LandauSource
