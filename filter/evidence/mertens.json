@@ -1,0 +1,33 @@
+{
+  "module": "MertensTransfer",
+  "lean": "4.34.1",
+  "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "source_sha256": "c343e05f0de577396fb6c6c6d90f671578586003379a1f1e9c44b76dd2e8dc65",
+  "olean_sha256": "2ad3e9e8005d60560d8ee9ae266acd3c4274c1f23391961e0e58eac6eaf7bbc3",
+  "kernel_compile_exit": 0,
+  "compiler_flags": [
+    "-j",
+    "1",
+    "-DwarningAsError=true"
+  ],
+  "axiom_audit_exit": 0,
+  "results": [
+    {
+      "name": "RHFilter.abs_F_of_mertens_prefix",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "RHFilter.abs_F_sqrt_eps_of_mertens",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "lean_audit_output": "@RHFilter.abs_F_of_mertens_prefix : ∀ {a A : ℝ},\r\n  0 ≤ a →\r\n    0 ≤ A →\r\n      (∀ (n : ℕ), 0 < n → |↑(RHFilter.pref n)| ≤ A * ↑n ^ a) → ∀ {x : ℝ}, 0 ≤ x → |RHFilter.F x| ≤ 18 * A * (4 * x) ^ a\r\n@RHFilter.abs_F_sqrt_eps_of_mertens : ∀ {ε A : ℝ},\r\n  0 < ε →\r\n    0 ≤ A →\r\n      (∀ (n : ℕ), 0 < n → |↑(RHFilter.pref n)| ≤ A * ↑n ^ (1 / 2 + ε)) →\r\n        ∀ {x : ℝ}, 0 ≤ x → |RHFilter.F x| ≤ 18 * A * 4 ^ (1 / 2 + ε) * x ^ (1 / 2 + ε)\r\n'RHFilter.abs_F_of_mertens_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]\r\n'RHFilter.abs_F_sqrt_eps_of_mertens' depends on axioms: [propext, Classical.choice, Quot.sound]"
+}

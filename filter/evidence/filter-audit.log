@@ -1,0 +1,28 @@
+'RHFilter.pref_eq_odd_sub_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.grid_eq_intervals' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.grid_jump_valuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.F_grid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.F_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHRealGrid.half_distance_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.Dyadic.finite_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.inverse_F_with_endpoints' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.Contour.source_hasSum_reciprocal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.F_lower_large_epsilon' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.External.reciprocal_deriv_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.External.reciprocal_holomorphic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.Trunc.near_half_log' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.Majorant.vertical_arc_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.Majorant.vertical_full_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.Perron.edges_of_reciprocal_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.Perron.signed_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.Perron.local_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.Perron.minorant_of_analytic_steps' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RHFilter.minorant_from_truncation_and_growth' depends on axioms: [propext, Classical.choice, Quot.sound]
+RHFilter.F_lower_large_epsilon {ε : ℝ} (hε : 1 / 2 ≤ ε) {x : ℝ} (hx : 0 < x) :
+  -(5 / 2 * 4 ^ (1 / 2 + ε)) * x ^ (1 / 2 + ε) ≤ RHFilter.F x
+RHFilter.Perron.minorant_of_analytic_steps (rh : RiemannHypothesis) {ε : ℝ} (he : 0 < ε) (he' : ε < 1 / 2)
+  (tr : RHFilter.Perron.Truncation) (edges : RHFilter.Perron.EdgeEstimates ε) :
+  ∃ C, 0 ≤ C ∧ ∀ (x : ℝ), 0 < x → -C * x ^ (1 / 2 + ε) ≤ RHFilter.F x
+RHFilter.minorant_from_truncation_and_growth (rh : RiemannHypothesis) (tr : RHFilter.Perron.Truncation)
+  (hg : ∀ (ε : ℝ), 0 < ε → ε < 1 / 2 → RHFilter.Perron.ReciprocalGrowth (1 / 2 + ε / 2) (ε / 2)) (ε : ℝ) :
+  0 < ε → ∃ C, 0 ≤ C ∧ ∀ (x : ℝ), 0 < x → -C * x ^ (1 / 2 + ε) ≤ RHFilter.F x

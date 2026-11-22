@@ -1,0 +1,110 @@
+{
+  "lean": "Lean (version 4.34.1, x86_64-w64-windows-gnu, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "mathlib_git": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "verification": "individual module builds and combined audit",
+  "modules": [
+    {
+      "module": "Parity",
+      "source_sha256": "6d95aa83cde49d9eb854e38ff5f0f2638c4e4803c0b92944b4b6c77eee9b604c",
+      "olean_sha256": "667e89046b1bd58a7bbb99b0cc2607de896211eb5c8664a07e8e253299c75776",
+      "exit": 0
+    },
+    {
+      "module": "Grid",
+      "source_sha256": "2473969354c278daf130a4e9c15c3844479c4f7d7839d55c6059ff04facc540b",
+      "olean_sha256": "6cabd5bb8ceb41825ea79734088149cd751151fb7a313f791eae1683986084f3",
+      "exit": 0
+    },
+    {
+      "module": "Dyadic",
+      "source_sha256": "4d76e0c44e5195cc9e5254c2a9601b27712d598b2baf25b7467a1b7cd36c2c88",
+      "olean_sha256": "6d1f056ac4f97166ab9efbf2c8cbac0c52acd340f187cb9ebbe5a820b10d62dd",
+      "exit": 0
+    },
+    {
+      "module": "Jump",
+      "source_sha256": "8c9d2541cebd79438523d651cbd8c98fdf75668168ee7911c57af993ac38bf4b",
+      "olean_sha256": "27fa3f0dd86fdcc27990135819ba4fa364638d600c04372f0e91336c0d5c4fc7",
+      "exit": 0
+    },
+    {
+      "module": "Intervals",
+      "source_sha256": "92465bb61eb0ace5f3ed1b6f2539c6b9c1c51fa958efa3b5db5897011bdf708d",
+      "olean_sha256": "f7e05ba3150e3e0d8d8d74923f59187c080a26f61530d8a345d260091ce90760",
+      "exit": 0
+    },
+    {
+      "module": "Filter",
+      "source_sha256": "38ac4d68e9e76d842f5adc8d5b8db09a187e2c766739ac1f37d5ee616b226966",
+      "olean_sha256": "7354647fd5dca8496fde01b9e47f62547d9da8057061bca746894f5b178844ae",
+      "exit": 0
+    },
+    {
+      "module": "Linear",
+      "source_sha256": "997c4b42ee717e066973560e743efa8b03a8f5a8aa7f628082c3d6c7ddaaf098",
+      "olean_sha256": "b210cedd978373f182188c9256a622209ea0496184ba5ae0949082a4631a6308",
+      "exit": 0
+    },
+    {
+      "module": "Orbit",
+      "source_sha256": "51d9590cba591e4a521474491566a2e1433045ead73bfcbc77904b4eeef8a7e5",
+      "olean_sha256": "6b20f1bab88ab6ab02eda030c64d7d913bc9c1e71562e7a18565fc5b4c45fea3",
+      "exit": 0
+    },
+    {
+      "module": "ExternalZF",
+      "source_sha256": "4c290905f6217d16361e2a773f681254dc2d27bcc2cca1128705165ff3c0bd29",
+      "olean_sha256": "17c12eb19763466aec4fc6f06ad610c8be7adccb59a1ebf14f2d586c5812b81c",
+      "exit": 0
+    },
+    {
+      "module": "Contour",
+      "source_sha256": "d95a84cb4daaf4c98dc4b4715a47bcf7b72b65a2529711882b6a759de1e469f5",
+      "olean_sha256": "e5ff191e98fdeec93e0e384e1636c4bdb881d71610f2e7fc776c2e3d81022b45",
+      "exit": 0
+    },
+    {
+      "module": "Scale",
+      "source_sha256": "36f0133b8738ac38806b1fc4f8b27ef50d0c248f0b4fb543f8fcbfc91fd3bac2",
+      "olean_sha256": "f0e8a88386a6e3e9ac263a5209c3f25e340b24a412f343eeb260db71361c84ad",
+      "exit": 0
+    },
+    {
+      "module": "Majorant",
+      "source_sha256": "35f424d454ddf48497eeeb8ca257e250fd47b6940aaa57ff4a3dfc9ffa656c5f",
+      "olean_sha256": "379a7855f72f523ef6c29bf0734eb6fdbf37b4e1ec0ea850aa5cee9001eb209b",
+      "exit": 0
+    },
+    {
+      "module": "KernelTrunc",
+      "source_sha256": "3ff6cfd31e4bdd66d797dfce897efd9a08d4638c360b58f58257c98468cf1343",
+      "olean_sha256": "f0fe397e6cf38fd3889a85dee9ed7f120213afccca3d918143105faff41c9f0e",
+      "exit": 0
+    },
+    {
+      "module": "Perron",
+      "source_sha256": "549036394b5344b9cea7ac6e44e7749bff3485308709c28b00552e28868859d6",
+      "olean_sha256": "469440b4184e755e0d210e6e83d3ec9e0b4e5ece79f9188f640cff169b493608",
+      "exit": 0
+    },
+    {
+      "module": "EdgeAssembly",
+      "source_sha256": "4c31aa2d636d6ed179151fdc20f753de8ba2e54df823f3cf32a168c9b41285f1",
+      "olean_sha256": "6f890bc8aafe0cfdc5917cd97c642ff6b54a72dec6db9f6199c51e8610edeb03",
+      "exit": 0
+    },
+    {
+      "module": "Conclusion",
+      "source_sha256": "de4d57fd52247cc835f05e60e7265138c0c34668e1c90b1428c0289a4eb1b58c",
+      "olean_sha256": "0881c84a28aeda2f3451cf19e0d1f8393ef2af7ef059b3459367cb98540106fc",
+      "exit": 0
+    },
+    {
+      "module": "Audit",
+      "source_sha256": "d1c6efc21f23053adf32a7a7c1662d1890c7c09bebb83b9668743fe068518845",
+      "olean_sha256": "36d20b1ecad4d71462a5beaa730870d02b753131be7aec9c01d26f9e22884c5e",
+      "exit": 0
+    }
+  ],
+  "audit_log": "'RHFilter.pref_eq_odd_sub_half' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.grid_eq_intervals' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.grid_jump_valuation' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.F_grid' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.F_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHRealGrid.half_distance_lower' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.Dyadic.finite_inverse' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.inverse_F_with_endpoints' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.Contour.source_hasSum_reciprocal' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.F_lower_large_epsilon' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.External.reciprocal_deriv_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.External.reciprocal_holomorphic' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.Trunc.near_half_log' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.Majorant.vertical_arc_le' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.Majorant.vertical_full_le' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.Perron.edges_of_reciprocal_growth' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.Perron.signed_shift' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.Perron.local_budget' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.Perron.minorant_of_analytic_steps' depends on axioms: [propext, Classical.choice, Quot.sound]\n'RHFilter.minorant_from_truncation_and_growth' depends on axioms: [propext, Classical.choice, Quot.sound]\nRHFilter.F_lower_large_epsilon {\u03b5 : \u211d} (h\u03b5 : 1 / 2 \u2264 \u03b5) {x : \u211d} (hx : 0 < x) :\n  -(5 / 2 * 4 ^ (1 / 2 + \u03b5)) * x ^ (1 / 2 + \u03b5) \u2264 RHFilter.F x\nRHFilter.Perron.minorant_of_analytic_steps (rh : RiemannHypothesis) {\u03b5 : \u211d} (he : 0 < \u03b5) (he' : \u03b5 < 1 / 2)\n  (tr : RHFilter.Perron.Truncation) (edges : RHFilter.Perron.EdgeEstimates \u03b5) :\n  \u2203 C, 0 \u2264 C \u2227 \u2200 (x : \u211d), 0 < x \u2192 -C * x ^ (1 / 2 + \u03b5) \u2264 RHFilter.F x\nRHFilter.minorant_from_truncation_and_growth (rh : RiemannHypothesis) (tr : RHFilter.Perron.Truncation)\n  (hg : \u2200 (\u03b5 : \u211d), 0 < \u03b5 \u2192 \u03b5 < 1 / 2 \u2192 RHFilter.Perron.ReciprocalGrowth (1 / 2 + \u03b5 / 2) (\u03b5 / 2)) (\u03b5 : \u211d) :\n  0 < \u03b5 \u2192 \u2203 C, 0 \u2264 C \u2227 \u2200 (x : \u211d), 0 < x \u2192 -C * x ^ (1 / 2 + \u03b5) \u2264 RHFilter.F x\n"
+}
