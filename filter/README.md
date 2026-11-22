@@ -14,7 +14,7 @@ Per `N = ⌊4x⌋` e `M(n) = ∑_{1 ≤ j ≤ n} μ(j)`, il valore di `F` sulla 
 
 ## Dal filtro a RH
 
-`JumpSeries.jumps_hasSum` calcola la serie dei salti direttamente dai coefficienti di Möbius. `Abel.transform_eq_source` la identifica con la trasformata della funzione a gradini per `Re s > 1`. Il suo simbolo è `P(z) = −(1−z)(1−2z)²`, con `z = 2^(−s)`. Per `1/2 < Re s < 1` nessuno dei fattori si annulla. Se il limite bilaterale su F vale per ogni ε positivo, la trasformata si prolunga olomorficamente a destra di 1/2. L'identità `ζ(s)G(s) = P(2^(−s))` esclude allora uno zero in quella striscia. [Serie dei salti](JumpSeries.lean) · [Raccordo integrale](AbelEuler.lean) · [Deduzione](OwnPath.lean).
+`RHFilter.Source.jumps_hasSum` calcola la serie dei salti direttamente dai coefficienti di Möbius. `Abel.transform_eq_source` la identifica con la trasformata della funzione a gradini per `Re s > 1`. Il suo simbolo è `P(z) = −(1−z)(1−2z)²`, con `z = 2^(−s)`. Per `1/2 < Re s < 1` nessuno dei fattori si annulla. Se il limite bilaterale su F vale per ogni ε positivo, la trasformata si prolunga olomorficamente a destra di 1/2. L'identità `ζ(s)G(s) = P(2^(−s))` esclude allora uno zero in quella striscia. [Serie dei salti](JumpSeries.lean) · [Raccordo integrale](AbelEuler.lean) · [Deduzione](OwnPath.lean).
 
 ## Verifica
 

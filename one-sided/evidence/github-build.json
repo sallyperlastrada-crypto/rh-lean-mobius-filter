@@ -1,0 +1,29 @@
+{
+  "workflow": "Verify the signed Mobius filter",
+  "run": "https://github.com/sallyperlastrada-crypto/rh-lean-filtro-mobius/actions/runs/45066521543",
+  "commit": "19d93910ef3446fd88e668323a7cd2b266f1e7ea",
+  "lean": "4.33.1",
+  "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "external_revision": "40e56bab026552e089d7afcfeff08d2defb9c005",
+  "github_log_archive_sha256": "13c58ffb7b321bd997894ed1128512a5941c05c2774869965af09a7631e7fd75",
+  "compiled": [
+    "✔ [3583/3594] Built LandauAxis (4.7s)",
+    "✔ [5005/5038] Built AbelEuler (3.3s)",
+    "✔ [6480/6514] Built LandauSource (4.2s)",
+    "⚠ [7806/7853] Built OneSidedConverse (4.3s)",
+    "✔ [8721/8730] Built Formalism.Statement (29s)",
+    "✔ [8722/8730] Built Formalism.StatementOC (16s)",
+    "✔ [8723/8730] Built Formalism.ZetaRealNonvanish (16s)",
+    "✔ [8724/8730] Built Formalism.ZetaNonvanishing.MellinDeriv (15s)",
+    "✔ [8725/8730] Built Formalism.ZetaNonvanishing.ZetaRealNonvanish (20s)",
+    "✔ [8726/8730] Built Formalism.DefsOC (9.5s)",
+    "✔ [8727/8730] Built Formalism.ZetaNonvanishing.LandauLemma (17s)",
+    "✔ [8728/8730] Built Formalism.ZetaNonvanishing.LandauEq (5.8s)",
+    "ℹ [8729/8730] Built SignedClosure (4.8s)"
+  ],
+  "axiom_audits": [
+    "'RHFilter.rh_of_signed_filter_minorant' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'RHFilter.rh_of_signed_grid_minorant' depends on axioms: [propext, Classical.choice, Quot.sound]"
+  ],
+  "arithmetic_hypothesis": "Uniform one-sided lower bound for every positive epsilon."
+}

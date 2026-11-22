@@ -28,3 +28,5 @@ lake env lean SignedClosure.lean
 ```
 
 L'ultimo comando stampa il tipo completo e gli assiomi dei due teoremi sul filtro reale e sulla griglia intera.
+
+GitHub Actions ha completato questa sequenza sul commit `19d9391`. Entrambi gli audit riportano `propext`, `Classical.choice` e `Quot.sound`. [Esecuzione verificata](https://github.com/sallyperlastrada-crypto/rh-lean-filtro-mobius/actions/runs/45066521543) · [Verbale con revisioni e impronta del log](evidence/github-build.json).

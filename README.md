@@ -1,8 +1,14 @@
 # Percorso verso RH con il filtro di Möbius F
 
-La funzione a gradini `F` è definita dai prefissi firmati di Möbius. Il teorema `RHFilter.rh_of_bilateral_filter` deduce l'ipotesi di Riemann da una stima di `|F|` di ordine `x^(1/2+ε)` per ogni ε positivo. Il suo termine di prova usa il simbolo del filtro, la trasformata di Mellin della griglia esatta e l'equazione funzionale. La dimostrazione aritmetica della stima resta aperta. [Percorso Lean](filter/OwnPath.lean) · [Griglia e bordi](filter/README.md).
+Il teorema `RHFilter.rh_of_signed_grid_minorant` deduce l'ipotesi di Riemann da un minorante uniforme della griglia di Möbius. Per ogni ε > 0 si richiede una costante C ≥ 0 tale che, per ogni intero N ≥ 1,
 
-Per compilare il percorso del filtro dalla radice, con la versione di Lean e la revisione di Mathlib fissate nel repository, eseguire
+```text
+−C N^(1/2+ε) ≤ −M(N) + 5 M(⌊N/2⌋) − 8 M(⌊N/4⌋) + 4 M(⌊N/8⌋).
+```
+
+Qui M(N) include il termine di indice N. Il membro destro è esattamente F(N/4). Lean 4.33.1 ha compilato sia il teorema sulla griglia sia quello sul filtro reale. L'audit di entrambi riporta `propext`, `Classical.choice` e `Quot.sound`. La dimostrazione aritmetica del minorante per 0 < ε < 1/2 resta aperta. [Enunciati Lean](one-sided/SignedClosure.lean) · [Build verificata su GitHub](https://github.com/sallyperlastrada-crypto/rh-lean-filtro-mobius/actions/runs/45066521543) · [Istruzioni per riprodurla](one-sided/README.md).
+
+La versione bilaterale `RHFilter.rh_of_bilateral_filter` usa una stima del valore assoluto. Per riprodurre questa compilazione dalla radice, eseguire
 
 ```sh
 lake exe cache get
@@ -12,7 +18,7 @@ lake env lean filter/OwnPath.lean
 
 ## Riscontro con la prova esterna
 
-Il [raccordo monolaterale](one-sided/README.md) impiega otto moduli esterni per il passaggio dal minorante di F all'olomorfia della trasformata positiva. La sua compilazione integrata è in verifica.
+Per il raccordo monolaterale si importano tre lemmi analitici dai sorgenti di Alpöge–Claude, con otto moduli di dipendenza. Il passo aritmetico assunto dal teorema è il minorante firmato riportato sopra. [Dipendenze e hash](one-sided/upstream.json) · [Verbale della compilazione](one-sided/evidence/github-build.json).
 
 [`ClosedRH.lean`](ClosedRH.lean) dichiara `RHDeposit.riemannHypothesis : RiemannHypothesis`. L'apporto aritmetico di questo riscontro è di **Levent Alpöge con Claude**. Il termine di prova applica la riduzione per riflessione al loro teorema di non annullamento delle funzioni L di Dirichlet. Il filtro F non compare nella sua dimostrazione. La dipendenza è fissata al [commit `40e56bab`](https://github.com/leanprover-community/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Main.lean).
 
